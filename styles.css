@@ -1,41 +1,30 @@
+/* Default light mode styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
+    background-color: white;
+    color: black;
+    transition: background 0.3s, color 0.3s;
 }
 
 header {
-    background: #333;
-    color: white;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: lightgray;
 }
 
 button {
     padding: 10px;
-    margin: 10px;
     cursor: pointer;
-    border: none;
-    background-color: #007BFF;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #121212;
     color: white;
-    border-radius: 5px;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-section {
-    padding: 20px;
-}
-
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+.dark-mode header {
+    background-color: #333;
 }
