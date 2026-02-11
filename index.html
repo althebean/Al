@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Board Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Al-Ameen Adediran</h1>
-    </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my personal website! I am passionate about coding, technology, and innovation.</p>
-    </section>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-    <section id="who-am-i">
-        <h2>Who Am I</h2>
-        <div class="who-am-i-content">
-            <img src="images/20250216_213045.jpg" alt="Al-Ameen Adediran" class="profile-pic">
-            <p>Hi, I'm Al-Ameen Adediran. I'm passionate about technology, coding, and innovation. I enjoy learning new things and solving problems with creative solutions.</p>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:alameenadediran9@gmail.com">alameenadediran9@gmail.com</a></p>
-        <p>Phone #:  <a>204-819-3352</a></p>
-    </section>
+  <header class="app-header glass">
+    <div>
+      <h1>Royal Board Arena</h1>
+      <p>Play Checkers, Tic-Tac-Toe, and Connect Four in one classy app.</p>
+    </div>
+    <div class="header-actions">
+      <button id="newGameBtn" class="btn btn-primary">New Game</button>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="app-grid">
+    <aside class="panel glass controls" aria-label="Game controls">
+      <h2>Play Setup</h2>
+
+      <label for="gameType">Game</label>
+      <select id="gameType">
+        <option value="checkers" selected>Checkers</option>
+        <option value="tictactoe">Tic-Tac-Toe</option>
+        <option value="connect4">Connect Four</option>
+      </select>
+
+      <label for="playMode">Mode</label>
+      <select id="playMode">
+        <option value="pvp">Player vs Player</option>
+        <option value="ai" selected>Player vs AI</option>
+      </select>
+
+      <label for="playerColor">Your Side</label>
+      <select id="playerColor">
+        <option value="red" selected>Red / X (first)</option>
+        <option value="black">Black / O / Yellow</option>
+      </select>
+
+      <label for="difficulty">AI Difficulty</label>
+      <select id="difficulty">
+        <option value="1">Beginner</option>
+        <option value="3" selected>Intermediate</option>
+        <option value="5">Advanced</option>
+      </select>
+
+      <div id="checkersOnly">
+        <label for="boardSize">Checkers Board Size</label>
+        <select id="boardSize">
+          <option value="8" selected>8x8 (classic)</option>
+          <option value="10">10x10</option>
+        </select>
+      </div>
+
+      <label for="theme">Theme</label>
+      <select id="theme">
+        <option value="classic" selected>Classic Gold</option>
+        <option value="midnight">Midnight Blue</option>
+      </select>
+
+      <div id="status" class="status" aria-live="polite">Ready</div>
+      <div class="legend" id="legend"></div>
+    </aside>
+
+    <section class="panel glass board-panel" aria-label="Board area">
+      <div class="board-meta">
+        <span id="turnBadge" class="meta-pill">Turn: -</span>
+        <span id="ruleBadge" class="meta-pill">Ruleset: -</span>
+      </div>
+      <div id="board" class="board" role="grid" aria-label="Board"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>
+      Multi-game architecture • AI ready • Ad hooks included for future AdMob integration
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
