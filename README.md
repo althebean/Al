@@ -1,21 +1,20 @@
-# Royal Checkers (Expandable + AI + Play Store Ready)
+# Royal Board Arena (Expandable + AI + Play Store Ready)
 
-A modern checkers game with polished visuals, modular architecture, and a built-in AI opponent.
+A modern board-game app with polished visuals, modular architecture, and built-in AI support.
+
+## Included games
+
+- Checkers (8x8 and 10x10)
+- Tic-Tac-Toe
+- Connect Four
 
 ## Features
 
-- Chess.com-inspired polished board + piece styling.
-- 8x8 and 10x10 board support.
-- Forced captures and multi-capture chaining.
-- King promotion with visual crown.
-- Play modes:
-  - Player vs Player
-  - Player vs AI
-- AI difficulty levels:
-  - Beginner
-  - Intermediate
-  - Advanced
-- Future-ready ad integration through `AdAdapter`.
+- Single game hub with game switching from the same UI.
+- Player vs Player and Player vs AI modes.
+- Difficulty levels (Beginner / Intermediate / Advanced).
+- Premium chess.com-inspired styling.
+- Ad integration hook via `AdAdapter` for future AdMob wiring.
 
 ## Run locally
 
@@ -32,22 +31,15 @@ http://localhost:4173
 
 ## Play Store path (later)
 
-### Capacitor route (best for ads)
-1. Add Capacitor to this project.
-2. Build Android project.
+### Capacitor route (recommended)
+1. Add Capacitor.
+2. Build Android app shell.
 3. Integrate AdMob plugin.
-4. Wire plugin calls into `AdAdapter` (`showInterstitial`, `showRewarded`).
-5. Build signed AAB and publish in Play Console.
+4. Wire plugin calls into `AdAdapter` methods.
+5. Build signed AAB and publish.
 
-### TWA route (fast web-wrapper)
-1. Deploy this app on HTTPS.
-2. Wrap with Bubblewrap.
-3. Publish to Play Store.
+## Notes
 
-## AI notes
-
-The AI uses minimax with alpha-beta pruning and a board-evaluation heuristic (piece count/value, king value, position bonuses).
-
-## Ad integration notes
-
-`AdAdapter` is a stub abstraction so gameplay logic stays unchanged when you add an ad SDK later.
+- Checkers AI uses minimax + alpha-beta pruning.
+- Tic-Tac-Toe AI uses minimax for stronger levels.
+- Connect Four AI uses tactical move checks + center preference.

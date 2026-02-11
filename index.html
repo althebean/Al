@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Royal Checkers</title>
+  <title>Royal Board Arena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -15,8 +15,8 @@
 
   <header class="app-header glass">
     <div>
-      <h1>Royal Checkers</h1>
-      <p>Elegant, expandable checkers with AI and mobile-store-ready architecture.</p>
+      <h1>Royal Board Arena</h1>
+      <p>Play Checkers, Tic-Tac-Toe, and Connect Four in one classy app.</p>
     </div>
     <div class="header-actions">
       <button id="newGameBtn" class="btn btn-primary">New Game</button>
@@ -27,16 +27,23 @@
     <aside class="panel glass controls" aria-label="Game controls">
       <h2>Play Setup</h2>
 
+      <label for="gameType">Game</label>
+      <select id="gameType">
+        <option value="checkers" selected>Checkers</option>
+        <option value="tictactoe">Tic-Tac-Toe</option>
+        <option value="connect4">Connect Four</option>
+      </select>
+
       <label for="playMode">Mode</label>
       <select id="playMode">
         <option value="pvp">Player vs Player</option>
         <option value="ai" selected>Player vs AI</option>
       </select>
 
-      <label for="playerColor">Your Color</label>
+      <label for="playerColor">Your Side</label>
       <select id="playerColor">
-        <option value="red" selected>Red (moves first)</option>
-        <option value="black">Black</option>
+        <option value="red" selected>Red / X (first)</option>
+        <option value="black">Black / O / Yellow</option>
       </select>
 
       <label for="difficulty">AI Difficulty</label>
@@ -46,11 +53,13 @@
         <option value="5">Advanced</option>
       </select>
 
-      <label for="boardSize">Board Size</label>
-      <select id="boardSize">
-        <option value="8" selected>8x8 (classic)</option>
-        <option value="10">10x10</option>
-      </select>
+      <div id="checkersOnly">
+        <label for="boardSize">Checkers Board Size</label>
+        <select id="boardSize">
+          <option value="8" selected>8x8 (classic)</option>
+          <option value="10">10x10</option>
+        </select>
+      </div>
 
       <label for="theme">Theme</label>
       <select id="theme">
@@ -58,26 +67,22 @@
         <option value="midnight">Midnight Blue</option>
       </select>
 
-      <div id="status" class="status" aria-live="polite">Red to move</div>
-      <div class="legend">
-        <span class="pill"><span class="dot red"></span> Red</span>
-        <span class="pill"><span class="dot black"></span> Black</span>
-        <span class="pill"><span class="dot king"></span> King</span>
-      </div>
+      <div id="status" class="status" aria-live="polite">Ready</div>
+      <div class="legend" id="legend"></div>
     </aside>
 
-    <section class="panel glass board-panel" aria-label="Checkers board area">
+    <section class="panel glass board-panel" aria-label="Board area">
       <div class="board-meta">
-        <span id="turnBadge" class="meta-pill">Turn: Red</span>
-        <span id="captureRule" class="meta-pill">Forced captures: ON</span>
+        <span id="turnBadge" class="meta-pill">Turn: -</span>
+        <span id="ruleBadge" class="meta-pill">Ruleset: -</span>
       </div>
-      <div id="board" class="board" role="grid" aria-label="Checkers board"></div>
+      <div id="board" class="board" role="grid" aria-label="Board"></div>
     </section>
   </main>
 
   <footer class="app-footer">
     <small>
-      Built to wrap with Capacitor/TWA for Google Play • Ad hooks included for future AdMob integration
+      Multi-game architecture • AI ready • Ad hooks included for future AdMob integration
     </small>
   </footer>
 
