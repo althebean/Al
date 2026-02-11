@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expandable Checkers</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Al-Ameen Adediran</h1>
-    </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my personal website! I am passionate about coding, technology, and innovation.</p>
+  <header class="app-header">
+    <h1>Expandable Checkers</h1>
+    <p class="subtitle">Built for Play Store deployment with ad hooks for future monetization.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls" aria-label="Game controls">
+      <h2>Game Setup</h2>
+      <label for="boardSize">Board Size</label>
+      <select id="boardSize">
+        <option value="8">8x8 (classic)</option>
+        <option value="10">10x10 (international-style)</option>
+      </select>
+
+      <label for="theme">Theme</label>
+      <select id="theme">
+        <option value="classic">Classic</option>
+        <option value="neon">Neon</option>
+      </select>
+
+      <div class="button-row">
+        <button id="newGameBtn">New Game</button>
+        <button id="hintBtn" disabled>Hint (coming soon)</button>
+      </div>
+
+      <div class="status" id="status" aria-live="polite">Red's turn</div>
+
+      <h3>Roadmap-ready features</h3>
+      <ul>
+        <li>Swap-in AI opponent module</li>
+        <li>Multiplayer networking module</li>
+        <li>Save/load profiles and progression</li>
+        <li>Ad adapter integration (AdMob/Unity Ads)</li>
+      </ul>
     </section>
 
-    <section id="who-am-i">
-        <h2>Who Am I</h2>
-        <div class="who-am-i-content">
-            <img src="images/20250216_213045.jpg" alt="Al-Ameen Adediran" class="profile-pic">
-            <p>Hi, I'm Al-Ameen Adediran. I'm passionate about technology, coding, and innovation. I enjoy learning new things and solving problems with creative solutions.</p>
-        </div>
+    <section class="panel board-panel" aria-label="Checkers board area">
+      <div class="top-bar">
+        <span id="turnBadge">Turn: Red</span>
+        <span id="captureRule">Capture priority: On</span>
+      </div>
+      <div id="board" class="board" role="grid" aria-label="Checkers board"></div>
     </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:alameenadediran9@gmail.com">alameenadediran9@gmail.com</a></p>
-        <p>Phone #:  <a>204-819-3352</a></p>
-    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer class="app-footer">
+    <small>
+      Tip: Wrap this app with Capacitor/TWA for Android. Then connect the ad adapter to Google AdMob.
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
