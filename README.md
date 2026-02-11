@@ -1,60 +1,53 @@
-# Expandable Checkers (Play Store Ready Starter)
+# Royal Checkers (Expandable + AI + Play Store Ready)
 
-This project is a modular web-based checkers game designed so you can:
+A modern checkers game with polished visuals, modular architecture, and a built-in AI opponent.
 
-- Ship quickly as an Android app using **Capacitor** or **Trusted Web Activity (TWA)**.
-- Add features later (AI, online multiplayer, progression, skins).
-- Add ads later via a dedicated `AdAdapter` hook.
+## Features
 
-## Current Features
+- Chess.com-inspired polished board + piece styling.
+- 8x8 and 10x10 board support.
+- Forced captures and multi-capture chaining.
+- King promotion with visual crown.
+- Play modes:
+  - Player vs Player
+  - Player vs AI
+- AI difficulty levels:
+  - Beginner
+  - Intermediate
+  - Advanced
+- Future-ready ad integration through `AdAdapter`.
 
-- 8x8 and 10x10 board options.
-- Capture-priority rules.
-- Multi-capture chains.
-- King promotion.
-- Theme switching.
-- Ad integration placeholder (`AdAdapter`) with `showInterstitial` and `showRewarded` methods.
-
-## Run Locally
+## Run locally
 
 ```bash
+cd /workspace/Al
 python3 -m http.server 4173
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:4173
 ```
 
-## Path to Google Play Store
+## Play Store path (later)
 
-### Option A: Capacitor (recommended for ad SDK control)
-1. Install Capacitor in this project.
-2. Build Android shell.
-3. Point WebView to local bundled assets.
-4. Integrate AdMob plugin and connect it to `AdAdapter` methods.
-5. Build signed AAB and upload to Play Console.
+### Capacitor route (best for ads)
+1. Add Capacitor to this project.
+2. Build Android project.
+3. Integrate AdMob plugin.
+4. Wire plugin calls into `AdAdapter` (`showInterstitial`, `showRewarded`).
+5. Build signed AAB and publish in Play Console.
 
-### Option B: TWA (fastest if hosted on HTTPS)
-1. Host this web app on HTTPS.
-2. Wrap with Bubblewrap/TWA.
+### TWA route (fast web-wrapper)
+1. Deploy this app on HTTPS.
+2. Wrap with Bubblewrap.
 3. Publish to Play Store.
-4. Ads are possible but usually easier via Capacitor/native SDK bridge.
 
-## Ad Integration Plan
+## AI notes
 
-Keep gameplay logic independent from ad provider:
+The AI uses minimax with alpha-beta pruning and a board-evaluation heuristic (piece count/value, king value, position bonuses).
 
-- `AdAdapter.initialize(config)`
-- `AdAdapter.showInterstitial(placement)`
-- `AdAdapter.showRewarded(placement)`
+## Ad integration notes
 
-When ready, replace console stubs in `script.js` with plugin calls (e.g. AdMob).
-
-## Expansion Suggestions
-
-- Add AI engine module (minimax + difficulty levels).
-- Add online mode via Firebase or a custom backend.
-- Add player profile and cloud save.
-- Add analytics and A/B testing for retention and ad frequency.
+`AdAdapter` is a stub abstraction so gameplay logic stays unchanged when you add an ad SDK later.

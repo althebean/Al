@@ -3,50 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expandable Checkers</title>
+  <title>Royal Checkers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="app-header">
-    <h1>Expandable Checkers</h1>
-    <p class="subtitle">Built for Play Store deployment with ad hooks for future monetization.</p>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <header class="app-header glass">
+    <div>
+      <h1>Royal Checkers</h1>
+      <p>Elegant, expandable checkers with AI and mobile-store-ready architecture.</p>
+    </div>
+    <div class="header-actions">
+      <button id="newGameBtn" class="btn btn-primary">New Game</button>
+    </div>
   </header>
 
-  <main class="layout">
-    <section class="panel controls" aria-label="Game controls">
-      <h2>Game Setup</h2>
+  <main class="app-grid">
+    <aside class="panel glass controls" aria-label="Game controls">
+      <h2>Play Setup</h2>
+
+      <label for="playMode">Mode</label>
+      <select id="playMode">
+        <option value="pvp">Player vs Player</option>
+        <option value="ai" selected>Player vs AI</option>
+      </select>
+
+      <label for="playerColor">Your Color</label>
+      <select id="playerColor">
+        <option value="red" selected>Red (moves first)</option>
+        <option value="black">Black</option>
+      </select>
+
+      <label for="difficulty">AI Difficulty</label>
+      <select id="difficulty">
+        <option value="1">Beginner</option>
+        <option value="3" selected>Intermediate</option>
+        <option value="5">Advanced</option>
+      </select>
+
       <label for="boardSize">Board Size</label>
       <select id="boardSize">
-        <option value="8">8x8 (classic)</option>
-        <option value="10">10x10 (international-style)</option>
+        <option value="8" selected>8x8 (classic)</option>
+        <option value="10">10x10</option>
       </select>
 
       <label for="theme">Theme</label>
       <select id="theme">
-        <option value="classic">Classic</option>
-        <option value="neon">Neon</option>
+        <option value="classic" selected>Classic Gold</option>
+        <option value="midnight">Midnight Blue</option>
       </select>
 
-      <div class="button-row">
-        <button id="newGameBtn">New Game</button>
-        <button id="hintBtn" disabled>Hint (coming soon)</button>
+      <div id="status" class="status" aria-live="polite">Red to move</div>
+      <div class="legend">
+        <span class="pill"><span class="dot red"></span> Red</span>
+        <span class="pill"><span class="dot black"></span> Black</span>
+        <span class="pill"><span class="dot king"></span> King</span>
       </div>
+    </aside>
 
-      <div class="status" id="status" aria-live="polite">Red's turn</div>
-
-      <h3>Roadmap-ready features</h3>
-      <ul>
-        <li>Swap-in AI opponent module</li>
-        <li>Multiplayer networking module</li>
-        <li>Save/load profiles and progression</li>
-        <li>Ad adapter integration (AdMob/Unity Ads)</li>
-      </ul>
-    </section>
-
-    <section class="panel board-panel" aria-label="Checkers board area">
-      <div class="top-bar">
-        <span id="turnBadge">Turn: Red</span>
-        <span id="captureRule">Capture priority: On</span>
+    <section class="panel glass board-panel" aria-label="Checkers board area">
+      <div class="board-meta">
+        <span id="turnBadge" class="meta-pill">Turn: Red</span>
+        <span id="captureRule" class="meta-pill">Forced captures: ON</span>
       </div>
       <div id="board" class="board" role="grid" aria-label="Checkers board"></div>
     </section>
@@ -54,7 +77,7 @@
 
   <footer class="app-footer">
     <small>
-      Tip: Wrap this app with Capacitor/TWA for Android. Then connect the ad adapter to Google AdMob.
+      Built to wrap with Capacitor/TWA for Google Play • Ad hooks included for future AdMob integration
     </small>
   </footer>
 
